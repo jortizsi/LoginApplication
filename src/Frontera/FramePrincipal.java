@@ -5,6 +5,10 @@
  */
 package Frontera;
 
+import Entidad.Sistema;
+import Entidad.Usuario;
+import java.util.ArrayList;
+
 /**
  *
  * @author Alejandro Ortiz
@@ -13,12 +17,18 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     private Registro registro = new Registro();
     private Ingreso ingreso = new Ingreso();
+    
+    //Creamos una variable de clase 
+    //Necesitamos importar Entidad.sistema
+    
+    public static Sistema sistema = new Sistema();
 
     /**
      * Creates new form FramePrincipal
      */
     public FramePrincipal() {
         initComponents();
+        inicializacion();
     }
 
     /**
@@ -158,7 +168,62 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+        public void inicializacion (){
+        ArrayList <Usuario> usuarios = new ArrayList <Usuario>();
+        
+        
+        //Creamos los usuarios
+        
+        Usuario a = new Usuario();
+        Usuario b = new Usuario();
+        Usuario c = new Usuario();
+        
+        
+        //Proveemos nombres y contrasenas
+        
+        
+        
+        
+        a.setNombre("juan");
+        a.setPassword("1234");
+        
+        b.setNombre("pedro");
+        b.setPassword("123");
+        
+        c.setNombre("maria");
+        c.setPassword("12345");
+        
+        
+        
+        
+        
+        usuarios.add(a);
+        usuarios.add(b);
+        usuarios.add(c);
+        
+        
+        /*
+        Le asignamos el arreglo usuarios a la variable de clase "Sistema"
+        */
+        
+        sistema.setUsuarios(usuarios);
+        
+        
+        //recorremos con un iterador para asegurarnos
+        
+        for (Usuario u: sistema.getUsuarios()){
+            System.out.println(u.getNombre());
+            System.out.println(u.getPassword());
+            System.out.println("------------");
+            
+        }
+        
+    }
+        
 
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ingresoB;
     private javax.swing.JPanel jPanel1;
